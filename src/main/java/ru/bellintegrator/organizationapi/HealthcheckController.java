@@ -9,7 +9,7 @@ public class HealthcheckController {
 
     @GetMapping("/version")
     public String version() {
-        return "home";
+        return "0.0.1-SNAPSHOT";
     }
 
 }

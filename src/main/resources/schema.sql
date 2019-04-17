@@ -7,7 +7,7 @@ CREATE TABLE IF NOT EXISTS organizations (
 	kpp         VARCHAR(9) NOT NULL                 COMMENT 'КПП организации',
 	address     VARCHAR NOT NULL                    COMMENT 'Официальный адрес юридического лица',
 	phone       VARCHAR                             COMMENT 'Основной телефон организации' UNIQUE,
-	version     INTEGER NOT NULL                    COMMENT 'Служебная метка версионирования таблицы'
+	version     INTEGER NOT NULL                    COMMENT 'Служебная метка версионирования'
 );
 COMMENT ON TABLE organizations IS 'Список организаций';
 
@@ -15,10 +15,10 @@ CREATE TABLE IF NOT EXISTS offices (
 	id          INTEGER NOT NULL                    COMMENT 'Уникальный идентификатор' PRIMARY KEY AUTO_INCREMENT,
 	name        VARCHAR                             COMMENT 'Краткое наименование офиса',
 	phone       VARCHAR                             COMMENT 'Телефон приемной/секретаря' UNIQUE,
-	isActive    BOOLEAN NOT NULL                    COMMENT 'Статус офиса: функционирует/упразднен',
+	isActive    BOOLEAN NOT NULL  DEFAULT 'FALSE'   COMMENT 'Статус офиса: функционирует/упразднен',
 	address     VARCHAR NOT NULL                    COMMENT 'Адрес офиса',
 	orgId       INTEGER NOT NULL                    COMMENT 'Идентификатор организации, которой принадлежит офис',
-	version     INTEGER NOT NULL                    COMMENT 'Служебная метка версионирования таблицы'
+	version     INTEGER NOT NULL                    COMMENT 'Служебная метка версионирования'
 );
 COMMENT ON TABLE offices IS 'Офисы организации';
 
@@ -28,9 +28,9 @@ CREATE TABLE IF NOT EXISTS users (
 	secondName  VARCHAR NOT NULL                    COMMENT 'Фамилия сотрудника',
 	middleName  VARCHAR                             COMMENT 'Отчество сотрудника',
 	phone       VARCHAR                             COMMENT 'Рабочий телефон сотрудника' UNIQUE,
-	citizenship INTEGER NOT NULL                    COMMENT 'Идентификатор гражданства сотрудника',
+	citizenship VARCHAR NOT NULL                    COMMENT 'Идентификатор гражданства сотрудника',
 	position    INTEGER NOT NULL                    COMMENT 'Идентификатор должности сотрудника',
-	version     INTEGER NOT NULL                    COMMENT 'Служебная метка версионирования таблицы'
+	version     INTEGER NOT NULL                    COMMENT 'Служебная метка версионирования'
 );
 COMMENT ON TABLE users IS 'Сотрудники организации';
 
@@ -48,7 +48,7 @@ CREATE TABLE IF NOT EXISTS user_docs (
 	doc_number  VARCHAR NOT NULL                    COMMENT 'Номер документа',
 	user_id     INTEGER NOT NULL                    COMMENT 'Уникальный идентификатор сотрудника',
 	isIdentified BOOLEAN NOT NULL DEFAULT 'FALSE'   COMMENT 'Метка подтвержденного документа',
-	doc_date    DATE COMMENT 'Дата выдачи документа'
+	doc_date    DATE                                COMMENT 'Дата выдачи документа'
 );
 COMMENT ON TABLE user_docs IS 'Документы сотрудника';
 
@@ -56,19 +56,19 @@ CREATE TABLE IF NOT EXISTS documents (
 	code        VARCHAR NOT NULL                    COMMENT 'Уникальный код типа документа' PRIMARY KEY,
 	name        VARCHAR NOT NULL                    COMMENT 'Русскоязычное название документа'
 );
-COMMENT ON TABLE documents IS 'Справочников типов документов';
+COMMENT ON TABLE documents IS 'Справочник типов документов';
 
 CREATE TABLE IF NOT EXISTS countries (
 	code        VARCHAR NOT NULL                    COMMENT 'Уникальный код страны' PRIMARY KEY,
 	name        VARCHAR NOT NULL                    COMMENT 'Официальное название страны'
 );
-COMMENT ON TABLE countries IS 'Справочников стран';
+COMMENT ON TABLE countries IS 'Справочник стран';
 
 CREATE TABLE IF NOT EXISTS titles (
 	id          INTEGER NOT NULL                    COMMENT 'Уникальный идентификатор' PRIMARY KEY AUTO_INCREMENT,
 	title_name  VARCHAR NOT NULL                    COMMENT 'Название должности'
 );
-COMMENT ON TABLE titles IS 'Справочников должностей';
+COMMENT ON TABLE titles IS 'Справочник должностей';
 
 
 CREATE INDEX IX_offices_orgId ON offices (orgId);
@@ -76,7 +76,7 @@ ALTER TABLE offices ADD FOREIGN KEY     (orgId)         REFERENCES organizations
 
 ALTER TABLE users ADD FOREIGN KEY       (citizenship)   REFERENCES countries(code);
 ALTER TABLE users ADD FOREIGN KEY       (position)      REFERENCES titles(id);
-ALTER TABLE user_docs ADD FOREIGN KEY   (doc_code)      REFERENCES documents(name);
+ALTER TABLE user_docs ADD FOREIGN KEY   (doc_code)      REFERENCES documents(code);
 
 CREATE INDEX IX_user_docs_id ON user_docs (user_id);
 ALTER TABLE user_docs ADD FOREIGN KEY   (user_id)       REFERENCES users(id);
