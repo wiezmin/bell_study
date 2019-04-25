@@ -1,9 +1,10 @@
-package ru.bellintegrator.organizationapi.model;
+package ru.bellintegrator.organizationapi.view;
 
 import lombok.Builder;
+import ru.bellintegrator.organizationapi.view.interfaces.View;
 
 @Builder
-public class User {
+public class UserView  implements View {
     
     private String officeId;
 
