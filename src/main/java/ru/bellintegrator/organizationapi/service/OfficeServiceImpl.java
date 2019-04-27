@@ -1,14 +1,14 @@
 package ru.bellintegrator.organizationapi.service;
 
+import ru.bellintegrator.organizationapi.dto.OfficeDto;
 import ru.bellintegrator.organizationapi.service.interfaces.Service;
-import ru.bellintegrator.organizationapi.view.interfaces.View;
 
 import java.util.List;
 
-public class OfficeServiceImpl implements Service {
+public class OfficeServiceImpl implements Service<OfficeDto> {
 
     @Override
-    public List<View> getAll(String[] params) {
+    public List<OfficeDto> getAll(OfficeDto criteria) {
         return null;
     }
 
@@ -18,12 +18,12 @@ public class OfficeServiceImpl implements Service {
     }
 
     @Override
-    public void update(View view) {
+    public void update(OfficeDto officeDto) {
 
     }
 
     @Override
-    public void save(View view) {
+    public void save(OfficeDto officeDto) {
 
     }
 }

@@ -1,4 +1,4 @@
-package ru.bellintegrator.organizationapi.model.classifiers;
+package ru.bellintegrator.organizationapi.entity.classifiers;
 
 import lombok.Data;
 

@@ -1,10 +1,10 @@
-package ru.bellintegrator.organizationapi.view;
+package ru.bellintegrator.organizationapi.dto;
 
 import lombok.Builder;
-import ru.bellintegrator.organizationapi.view.interfaces.View;
+import lombok.Data;
 
-@Builder
-public class UserView  implements View {
+@Data
+public class UserDto {
     
     private String officeId;
 

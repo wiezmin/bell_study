@@ -1,18 +1,15 @@
 package ru.bellintegrator.organizationapi.service.interfaces;
 
-import ru.bellintegrator.organizationapi.view.OfficeView;
-import ru.bellintegrator.organizationapi.view.interfaces.View;
-
 import java.util.List;
 
-public interface Service {
+public interface Service<D> {
 
-    List<View> getAll(String[] params);
+    List<D> getAll(D dto);
 
     void get(String id);
 
-    void update(View view);
+    void update(D dto);
 
-    void save(View view);
+    void save(D dto);
 
 }

@@ -1,4 +1,4 @@
-package ru.bellintegrator.organizationapi.model;
+package ru.bellintegrator.organizationapi.entity;
 
 import lombok.Builder;
 

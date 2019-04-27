@@ -1,11 +1,11 @@
-package ru.bellintegrator.organizationapi.view;
+package ru.bellintegrator.organizationapi.dto;
 
 
 import lombok.Builder;
-import ru.bellintegrator.organizationapi.view.interfaces.View;
+import lombok.Data;
 
-@Builder
-public class OrganizationView  implements View {
+@Data
+public class OrganizationDto {
 
     //@NonNull - возможно норм тема
     private String name;

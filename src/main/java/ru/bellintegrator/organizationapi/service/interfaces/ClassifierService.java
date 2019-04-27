@@ -1,11 +1,9 @@
 package ru.bellintegrator.organizationapi.service.interfaces;
 
-import ru.bellintegrator.organizationapi.view.interfaces.View;
-
 import java.util.List;
 
-public interface ClassifierService {
+public interface ClassifierService<V> {
 
-    List<View> getAll();
+    List<V> getAll();
 
 }
