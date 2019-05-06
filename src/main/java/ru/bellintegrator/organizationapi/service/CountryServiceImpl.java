@@ -1,6 +1,6 @@
 package ru.bellintegrator.organizationapi.service;
 
-import ru.bellintegrator.organizationapi.entity.classifiers.Country;
+import ru.bellintegrator.organizationapi.model.entity.classifiers.Country;
 import ru.bellintegrator.organizationapi.service.interfaces.ClassifierService;
 
 import java.util.List;

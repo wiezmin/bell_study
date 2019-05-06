@@ -1,7 +1,7 @@
 CREATE TABLE IF NOT EXISTS organization (
 	id          INTEGER NOT NULL                    COMMENT 'Уникальный идентификатор' PRIMARY KEY AUTO_INCREMENT,
 	name        VARCHAR NOT NULL                    COMMENT 'Краткое название организации',
-	inn         VARCHAR(10) NOT NULL                COMMENT 'ИНН организации',
+	inn         VARCHAR(12) NOT NULL                COMMENT 'ИНН организации',
 	isActive    BOOLEAN NOT NULL DEFAULT 'FALSE'    COMMENT 'Статус организации: активна/ликвидирована',
 	fullName    VARCHAR NOT NULL                    COMMENT 'Полное название организации',
 	kpp         VARCHAR(9) NOT NULL                 COMMENT 'КПП организации',

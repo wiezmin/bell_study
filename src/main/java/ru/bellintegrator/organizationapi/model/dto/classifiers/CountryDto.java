@@ -1,4 +1,4 @@
-package ru.bellintegrator.organizationapi.dto.classifiers;
+package ru.bellintegrator.organizationapi.model.dto.classifiers;
 
 import lombok.Data;
 

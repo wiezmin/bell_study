@@ -6,7 +6,7 @@ public interface Service<D> {
 
     List<D> getAll(D dto);
 
-    void get(String id);
+    D get(String id);
 
     void update(D dto);
 

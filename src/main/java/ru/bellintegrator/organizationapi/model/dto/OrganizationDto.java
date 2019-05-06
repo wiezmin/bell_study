@@ -1,10 +1,10 @@
-package ru.bellintegrator.organizationapi.entity;
+package ru.bellintegrator.organizationapi.model.dto;
 
 
-import lombok.Builder;
+import lombok.Data;
 
-@Builder
-public class Organization {
+@Data
+public class OrganizationDto {
 
     //@NonNull - возможно норм тема
     private String name;

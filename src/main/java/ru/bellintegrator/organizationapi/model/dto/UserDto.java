@@ -1,9 +1,9 @@
-package ru.bellintegrator.organizationapi.entity;
+package ru.bellintegrator.organizationapi.model.dto;
 
-import lombok.Builder;
+import lombok.Data;
 
-@Builder
-public class User {
+@Data
+public class UserDto {
     
     private String officeId;
 
