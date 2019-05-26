@@ -4,7 +4,7 @@ import java.util.List;
 
 public interface Service<D> {
 
-    List<D> getAll(D dto);
+    List<D> getAll(D criteria);
 
     D get(String id);
 

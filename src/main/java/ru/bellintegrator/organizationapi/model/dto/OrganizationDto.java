@@ -6,7 +6,8 @@ import lombok.Data;
 @Data
 public class OrganizationDto {
 
-    //@NonNull - возможно норм тема
+    private String id;
+
     private String name;
 
     private String fullName;

@@ -16,7 +16,6 @@ import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 @RequestMapping("office")
 public class OfficeController {
 
-    //@Qualifier("officeServiceImpl")
     @Autowired
     private OfficeServiceImpl officeService;
 

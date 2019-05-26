@@ -45,7 +45,7 @@ public class OfficeServiceImpl implements Service<Office> {
     }
 
     @Override
-    public void update(Office office) {
+    public void   update(Office office) {
         Office.builder()
             .id(office.getId())
             .address(office.getAddress())
