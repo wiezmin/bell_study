@@ -5,9 +5,9 @@ import lombok.Data;
 @Data
 public class CountryDto {
 
-    public String code;
+    private String code;
 
-    public String name;
+    private String name;
 
     @Override
     public String toString() {

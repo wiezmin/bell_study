@@ -20,6 +20,7 @@ public class OrganizationServiceImpl implements Service<Organization> {
     @Autowired
     private OrganizationRepository organizationRepository;
 
+    //TODO: метод работает некорректно, переделать на фильтр
     @Override
     public List<Organization> getAll(Organization criteria) {
         return organizationRepository.findByNameOrInnOrIsActive(
@@ -43,9 +44,11 @@ public class OrganizationServiceImpl implements Service<Organization> {
              organizationToUpdate.setActive(true);
          }
 
-         //TODO: ДОДЕЛАТЬ
          organizationToUpdate.setName(organization.getName());
          organizationToUpdate.setFullName(organization.getFullName());
+         organizationToUpdate.setInn(organization.getInn());
+         organizationToUpdate.setKpp(organization.getKpp());
+         organizationToUpdate.setAddress(organization.getAddress());
 
          organizationRepository.save(organizationToUpdate);
     }

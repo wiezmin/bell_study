@@ -14,7 +14,7 @@ import javax.persistence.*;
 public class UserOffice {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(name = "id", nullable = false)
     private int id;
 

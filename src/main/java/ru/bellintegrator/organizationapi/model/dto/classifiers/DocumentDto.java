@@ -9,4 +9,9 @@ public class DocumentDto {
 
     private String name;
 
+    @Override
+    public String toString() {
+        return "{name:" + name + ",code:" + code + "}";
+    }
+
 }

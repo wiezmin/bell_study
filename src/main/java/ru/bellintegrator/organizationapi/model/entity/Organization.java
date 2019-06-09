@@ -1,17 +1,21 @@
 package ru.bellintegrator.organizationapi.model.entity;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
 import javax.persistence.*;
 
 @Data
 @Entity
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 @Table(name = "organization")
 public class Organization {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @SequenceGenerator(name="seq_PK",sequenceName="ID_SEQ", allocationSize = 1)
+    @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="seq_PK")
     @Column(name = "id", nullable = false)
     private int id;
 

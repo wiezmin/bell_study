@@ -5,6 +5,7 @@
 package ru.bellintegrator.organizationapi.dao;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.lang.Nullable;
 import org.springframework.stereotype.Repository;
 import ru.bellintegrator.organizationapi.model.entity.Organization;
@@ -18,7 +19,7 @@ import java.util.List;
 public interface OrganizationRepository extends JpaRepository<Organization, Integer> {
 
     public List<Organization> findByNameOrInnOrIsActive(String name,
-                                                        String inn,
-                                                        boolean isActive);
+                                             String inn,
+                                             Boolean isActive);
 
 }

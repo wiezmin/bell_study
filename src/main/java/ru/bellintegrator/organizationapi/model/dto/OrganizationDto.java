@@ -1,12 +1,11 @@
 package ru.bellintegrator.organizationapi.model.dto;
 
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
 @Data
 public class OrganizationDto {
-
-    private String id;
 
     private String name;
 
@@ -20,6 +19,7 @@ public class OrganizationDto {
 
     private String phone;
 
-    private boolean isActive;
+    @JsonProperty("isActive")
+    private String isActive;
 
 }
